@@ -1,0 +1,19 @@
+{% extends 'dist/base.html' %}
+{% block body %}
+<p style="color: black;">{{time}}</p>
+{% for favourite in favourites %}
+    <div class="container">
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        
+                           
+                        <a href="experience_edit/{{favourite.id}}"><input type="submit" class="btn" value="Edit" style="float:right"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% endfor %}
+    {% endblock body %}

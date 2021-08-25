@@ -1,0 +1,66 @@
+{% extends 'dist/base.html' %}
+{% block title %}
+    | edit your day
+{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="card-title" style="height: 2cm; text-align:center;">
+    <h1>Daily Dairy</h1>
+    <h6>{{user}}</h6>
+    </div>
+    
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Summarize Your Today's movement</h3>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="row">
+            <form action="/daily_edit/{{post.sno}}" method="POST">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <p class="text-subtitle text-muted">1. What do you experience today?
+                                </p>
+                                <p class="text-subtitle text-muted">2. May today be frastrated?
+                               </p>
+                                <p class="text-subtitle text-muted">3. Can you complete your daily goal?
+                                </p>
+                                <p class="text-subtitle text-muted">4. Do you meet any new person?
+                                </p>
+                                <p class="text-subtitle text-muted">5. As businessman, can you convince your client?
+                                </p>
+                                <p class="text-subtitle text-muted">6. Do you recognize anything new?
+                                </p>
+                                <p class="text-subtitle text-muted">7. What do you think all day long?
+                                </p> 
+                                <p class="text-subtitle text-muted">8. What if you can not solve your daily task?
+                                </p>
+                                <p class="text-subtitle text-muted">9. Which task do you prefer most tomorrow at first?
+                                    <li>Previous day undone work</li>
+                                    <li>Today's ongoing work</li>                            
+                                </p>
+                            </h4>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="summernote"></div>
+                            <div class="container">
+                                <input type="text" name="address" style="height: 30%; width: 100%; border-radius: 20px; padding: 5px;"
+                                    value="{{post.subject}}">
+                                <textarea name="post" cols="130" rows="10" style="height: 20%; width: 100%; border-radius: 20px; padding: 5px;">{{post.post}}</textarea>
+                                    
+                            </div>
+                            <input type="submit" class="btn btn-dark" value="Save" style="float:right">
+                        </div>      
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock body %}

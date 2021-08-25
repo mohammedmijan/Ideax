@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+| main page
+{% endblock title %}
+{% block body %}
+<div class="card-title" style="height: 2cm; text-align:center;">
+    <h1>Home</h1>
+    <h6>Explore people</h6>
+</div>
+
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-10" style="text-align: center;">
+
+    <div class="card">
+        <div class="card-header">
+            {% for dairy in dairies %}
+            <h2>Daily Plan of People</h2>
+            <h4>{{dairy.subject}}</h4>
+            <p>{{dairy.post}}</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            {% for experience in experiences %}
+            <h2>Experienced Share by People</h2>
+            <h4>{{experience.item}}</h4>
+            <h4>{{experience.heading}}</h4>
+            <h4>{{experience.description}}</h4>
+            <p>{{experience.writing}}</p>
+            {% endfor %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock body %}

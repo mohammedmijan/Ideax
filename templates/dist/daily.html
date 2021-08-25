@@ -1,0 +1,308 @@
+{% extends 'dist/base.html' %}
+{% block title %}
+| Write your day
+{% endblock title %}
+{% block body %}
+
+    <div class="card-title" style="height: 2cm; text-align:center;">
+        <h1>Daily Dairy</h1>
+        <h6>{{user}}</h6>
+    </div>
+
+
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Write Your Today's movement</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="text-align: center;color: #000;">Watch them and think about what you want to write.</p>
+    <section class="section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>What do you experience today?</h4>
+                        <p>May today be frastrated?</p><br>
+                        <p>Can you complete your daily goal?</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active">
+                                </li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/Experience-1.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item pictures">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/reached-1.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item pictures">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/reached-2.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Do you meet any new person?</h4>
+                        <p>Do you recognize anything new?</p><br>
+                        <p>Which steps make you frastrated?</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active">
+                                </li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/Meet-1.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/Meet-2.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/Meet-3.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4> What if you can not solve your daily task?</h4>
+                        <p>As businessman, can you convince your client?</p><br>
+                        <p>As writer, can you complete your writing?</p>
+                        <li>Previous day undone work</li>
+                        <li>Today's ongoing work</li>
+                    </div>
+                    <div class="card-body">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active">
+                                </li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/UnCom-1.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/UnCom-2.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item pictures">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/UnCom-3.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>What do you think all day long?</h4>
+                        <p>Which task do you prefer most tomorrow at
+                            first?</p><br>
+                        <p>Which steps make you frastrated?</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active">
+                                </li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/tw-1.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/tw-2.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='assets/images/samples/tw-3.gif') }}"
+                                        class="d-block w-100" alt="...">
+
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <div class="row">
+            <form action="/daily_dairy" method="POST">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="sidebar-header">
+                            <div class="d-flex justify-content-between">
+                                <div class="logo">
+                                    <img style="border-radius: 30px;height: 5rem; width: 5rem;"
+                                        src="{{ url_for('static', filename='assets/images/dairy/dairy.png') }}"
+                                        alt="Logo">
+                                </div>
+                                <div class="toggler">
+                                    <a href="#" class="sidebar-hide d-xl-none d-block"><i
+                                            class="bi bi-x bi-middle"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        write here---
+                        <div class="card-body">
+                            <div class="summernote"></div>
+                            <div class="container">
+                                <input type="text" name="address"
+                                    style="height: 30%; width: 100%; border-radius: 20px; padding: 5px;"
+                                    placeholder="Subjet">
+                                <textarea name="post" cols="130" rows="10"
+                                    placeholder="Read the above questions and write about your today...."
+                                    style="height: 20%; width: 100%; border-radius: 20px; padding: 5px;"></textarea>
+                            </div>
+                            <section>
+                                <h3 class="card-title">Today is effective or not effective?</h3>
+                                <select name="select" class="card-title" style="border-radius: 10rem;">
+                                    <option>---Select---</option>
+                                    <option value="1">Effective</option>
+                                    <option value="0">Not Effective</option>
+                                    <option value="2">Partial</option>
+                                </select>
+                            </section>
+                            <input type="submit" class="btn btn-dark" value="Save" style="float:right">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    {% for post in posts %}
+    <div class="container">
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <p style="color: black;">{{post.time_}}</p>
+                        {% if post.effective == "0" %}
+                        <div class="card-header">
+                            <h3>Your Daily Experience</h3>
+                            <h6 class="address" style="color: red;">{{post.subject}}</h6>
+                            <p>{{post.post}}</p>
+                            <div class="row" style="float: right;">
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card-header">
+                            <h3>Your Daily Experience</h3>
+                            <h6 class="address">{{post.subject}}</h6>
+                            <p>{{post.post}}</p>
+                            <div class="row" style="float: right;">
+                            </div>
+                        </div>
+                        {% endif %}
+                        <a href="daily_edit/{{post.sno}}"><input type="submit" class="btn" value="Edit"
+                                style="float:right"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% endfor %}
+
+{% endblock body %}
