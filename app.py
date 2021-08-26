@@ -138,7 +138,8 @@ def daily_edit(sno):
         return redirect("/")
 
     post = blog_post.query.filter_by(sno=sno).first()
-    response = make_response(render_template("dist/daily_edit.html", post=post)).set_cookie("Edit_dairy", "Edit your Dairy")
+    response = make_response(render_template("dist/daily_edit.html", post=post))
+    response.set_cookie("Edit_dairy", "Edit your Dairy")
     return response
 
 
@@ -183,6 +184,7 @@ def experience_edit(id):
         return redirect("/experience")
 
     post = Experience.query.filter_by(id=id).first()
+    print(post)
     return render_template("dist/experience_edit.html", experience=post, user=current_user.name)
 
 @app.route("/favourite", methods=["GET", "POST"])
