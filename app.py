@@ -104,7 +104,7 @@ def logout():
     return redirect("/login")
 
 
-@app.route("/daily_dairy" , methods=["GET" , "POST"])
+@app.route("/daily_diary" , methods=["GET" , "POST"])
 @login_required
 def blog_post_():
     if request.method == "POST":
@@ -116,12 +116,12 @@ def blog_post_():
              post=post, effective=effective, time_=time.asctime())
             db.session.add(post_blog)
             db.session.commit()
-        return redirect("/daily_dairy")
+        return redirect("/daily_diary")
 
     posts = blog_post.query.filter_by(name=current_user.name).all()
     posts.reverse()
     response = make_response(render_template("dist/daily.html" , posts=posts, user=current_user.name, foo=42))
-    response.set_cookie("Daily", "People read this dairy")
+    response.set_cookie("Daily", "People read this diary")
     return response
 
 @app.route("/daily_edit/<int:sno>", methods=["GET", "POST"])
@@ -139,7 +139,7 @@ def daily_edit(sno):
 
     post = blog_post.query.filter_by(sno=sno).first()
     response = make_response(render_template("dist/daily_edit.html", post=post))
-    response.set_cookie("Edit_dairy", "Edit your Dairy")
+    response.set_cookie("Edit_diary", "Edit your diary")
     return response
 
 
