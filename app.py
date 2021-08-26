@@ -92,9 +92,12 @@ def login():
 
 
 @app.route("/")
+@login_required
 def daily_dairies():
     dairies = blog_post.query.all()
     experiences = Experience.query.all()
+    dairies.reverse()
+    experiences.reverse()
     return render_template("main.html", dairies=dairies, experiences=experiences)
 
 @app.route("/logout")
