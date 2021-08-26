@@ -5,7 +5,7 @@
 {% block body %}
 <div class="card-title" style="height: 2cm; text-align:center;">
     <h1>Home</h1>
-    <h6>Explore people</h6>
+    <h4>Explore people</h4>
 </div>
 
 
@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-header">
             {% for diary in dairies %}
-            <h2>Daily Plan of People</h2>
+            <h2>Ideas and Thoughts of People</h2>
             <h4>{{diary.subject}}</h4>
             <p>{{diary.post}}</p>
         </div>
@@ -33,7 +33,7 @@
     <div class="card">
         <div class="card-header">
             {% for experience in experiences %}
-            <h2>Experienced Share by People</h2>
+            <h2>Experience Shared by People</h2>
             <h4>{{experience.item}}</h4>
             <h4>{{experience.heading}}</h4>
             <h4>{{experience.description}}</h4>

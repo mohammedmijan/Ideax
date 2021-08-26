@@ -73,14 +73,10 @@ class Favourite(db.Model):
 def login():
     if request.method == "POST":
         name = request.form["email"]
-        remember = request.form.get("remember")
         while True:
             user_name = User.query.filter_by(name=name).first()
             if user_name:
-                if remember:
-                    login_user(user=user_name, remember=True)
-                else:
-                    login_user(user=user_name, remember=False)
+                login_user(user=user_name, remember=True)
             else:
                 name_save = User(name=name)
                 db.session.add(name_save)
@@ -138,7 +134,7 @@ def daily_edit(sno):
         before_edit.post = post
         db.session.add(before_edit)
         db.session.commit()
-        return redirect("/")
+        return redirect("/daily_diary")
 
     post = blog_post.query.filter_by(sno=sno).first()
     response = make_response(render_template("dist/daily_edit.html", post=post))
