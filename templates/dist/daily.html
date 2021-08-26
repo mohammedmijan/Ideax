@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="card-title" style="height: 2cm; text-align:center;">
-        <h1>Daily Dairy</h1>
+        <h1>Daily diary</h1>
         <h6>{{user}}</h6>
     </div>
 
@@ -222,14 +222,14 @@
 
     <section class="section">
         <div class="row">
-            <form action="/daily_dairy" method="POST">
+            <form action="/daily_diary" method="POST">
                 <div class="col-12">
                     <div class="card">
                         <div class="sidebar-header">
                             <div class="d-flex justify-content-between">
                                 <div class="logo">
                                     <img style="border-radius: 30px;height: 5rem; width: 5rem;"
-                                        src="{{ url_for('static', filename='assets/images/dairy/dairy.png') }}"
+                                        src="{{ url_for('static', filename='assets/images/diary/diary.png') }}"
                                         alt="Logo">
                                 </div>
                                 <div class="toggler">
