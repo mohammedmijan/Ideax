@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-| main page
+| home
 {% endblock title %}
 {% block body %}
 <div class="card-title" style="height: 2cm; text-align:center;">
@@ -24,21 +24,21 @@
 
     <div class="card">
         <div class="card-header">
-            {% for diary in dairies %}
             <h2>Ideas and Thoughts of People</h2>
-            <h4>{{diary.subject}}</h4>
+            {% for diary in dairies %}
+            <h3>{{diary.subject}}</h3>
             <p>{{diary.post}}</p>
+            {% endfor %}
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            {% for experience in experiences %}
             <h2>Experience Shared by People</h2>
-            <h4>{{experience.item}}</h4>
+            {% for experience in experiences %}
+            <h3>{{experience.item}}</h3>
             <h4>{{experience.heading}}</h4>
             <h4>{{experience.description}}</h4>
             <p>{{experience.writing}}</p>
-            {% endfor %}
             {% endfor %}
 
         </div>
