@@ -27,7 +27,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h2>Ideas and Thoughts of People</h2>
+            <h2 style="color: rgb(49, 174, 216);">Ideas and Thoughts of People</h2>
             {% for diary in dairies %}
             <h5>{{diary.subject}}</h5>
             <p>{{diary.post}}</p>
@@ -37,11 +37,11 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h2>Experience Shared by People</h2>
+            <h2 style="color: rgb(7, 101, 133);">Experience Shared by People</h2>
             {% for experience in experiences %}
-            <h3>{{experience.item}}</h3>
-            <h4>{{experience.heading}}</h4>
-            <h4>{{experience.description}}</h4>
+            <h3 style="color: rgb(76, 132, 238);">{{experience.item}}</h3>
+            <h4 style="color: rgb(49, 174, 216);">{{experience.heading}}</h4>
+            <h4 >{{experience.description}}</h4>
             <p>{{experience.writing}}</p>
             <hr>
             {% endfor %}
