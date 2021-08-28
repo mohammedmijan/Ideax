@@ -1,17 +1,23 @@
 {% extends 'dist/base.html' %}
 {% block body %}
 <p style="color: black;">{{time}}</p>
-{% for favourite in favourites %}
     <div class="container">
         <section class="section">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <a href="experience_edit/{{favourite.id}}"><input type="submit" class="btn" value="Edit" style="float:right"></a>
+                    person:{{favourites.person}} <br>
+                    fish:{{favourites.fish}} <br>
+                    place:{{favourites.place}} <br>
+                    flower:{{favourites.flower}} <br>
+                    animal: {{favourites.animal}} <br>
+                    drink:{{favourites.drink}} <br>
+                    food: {{favourites.food}} <br>
+                    game: {{favourites.game}} <br>
+                    movie:{{favourites.movie}} <br>
+                    tvshow:{{favourites.tvshow}} <br>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    {% endfor %}
     {% endblock body %}

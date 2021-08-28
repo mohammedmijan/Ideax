@@ -1,3 +1,4 @@
+from os import name
 from flask import Flask  , render_template , request , redirect, flash, jsonify
 from flask.helpers import make_response
 from flask_login import LoginManager, logout_user, login_required, login_user, current_user, UserMixin, COOKIE_NAME, COOKIE_SECURE
@@ -90,6 +91,9 @@ def login():
 @app.route("/")
 @login_required
 def daily_dairies():
+    favourites = Favourite.query.filter_by(name=current_user.name).first()
+    if not favourites:
+        return redirect("/favourite")
     dairies = blog_post.query.all()
     experiences = Experience.query.all()
     dairies.reverse()
@@ -145,8 +149,6 @@ def daily_edit(sno):
 @app.route("/experience", methods=["GET","POST"])
 @login_required
 def experience_():
-    username = request.cookies.get("Daily")
-    print(username)
     if request.method == "POST":
         item =request.form["item"]
         heading =request.form["heading"]
@@ -189,7 +191,7 @@ def experience_edit(id):
 @app.route("/favourite", methods=["GET", "POST"])
 @login_required
 def favourite():
-    favourites = Favourite.query.filter_by(name=current_user.name).all()
+    favourites = Favourite.query.filter_by(name=current_user.name).first()
     if favourites:
         return render_template("dist/favourite.html", favourites=favourites, user=current_user.name, time=time.asctime())
     elif request.method == "POST":
@@ -211,6 +213,18 @@ def favourite():
         return redirect("/favourite")
         
     return render_template("dist/favourite_set.html")
+
+@app.route("/admin")
+@login_required
+def admin():
+    name=current_user.name
+    if name == "mejan601@gmail.com":
+        login_person = User.query.all()
+        login_person.reverse()
+        return render_template("admin.html", 
+            subscribers=login_person, no_subscribers=len(login_person))
+    else:
+        return redirect("/")
 
 
 

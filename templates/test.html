@@ -36,6 +36,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
@@ -69,9 +70,11 @@
           <li><a class="nav-link scrollto" href="/experience">Your Experience</a></li>
           <li class="dropdown"><a href="/favourite"><span>Your Favourites</span> <i class="bi bi-chevron-right"></i></a>
             <ul>
-              <li><a href="/favourite">Favourites</a></li>
-              <li><a href="/">Coming Soon</a></li>
-              
+              <li><a href="#">Deep Drop Down 1</a></li>
+              <li><a href="#">Deep Drop Down 2</a></li>
+              <li><a href="#">Deep Drop Down 3</a></li>
+              <li><a href="#">Deep Drop Down 4</a></li>
+              <li><a href="#">Deep Drop Down 5</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="/logout">logout</a></li>
@@ -84,12 +87,9 @@
   </header><!-- End Header -->
 
   <body>
-      <br><br><br><br><br>
-      <div class="container">
       {% block body %}
           
       {% endblock body %}
-    </div>
   </body>
   <!-- Vendor JS Files -->
   <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>

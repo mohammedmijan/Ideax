@@ -266,20 +266,20 @@
                         <div class="card-header">
                             <h3 class="address" style="color: red;">{{post.subject}}</h3>
                             <p>{{post.post}}</p>
-                            
                         </div>
+                    
                         {% else %}
                         <div class="card-header">
                             <h3 class="address">{{post.subject}}</h3>
                             <p>{{post.post}}</p>
-                            <div class="row" style="float: right;">
-                            </div>
+                           
                         </div>
+                        
                         {% endif %}
                         <p style="color: black; text-align: right;padding: 2.2rem;">Uploaded time:{{post.time_}}</p>
-
                         <a href="daily_edit/{{post.sno}}"><input type="submit" class="btn" value="Edit"
                                 style="float:right"></a>
+                                <hr>
     {% endfor %}
                     
                             </div>
