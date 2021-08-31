@@ -9,7 +9,6 @@
     <h6>{{user}}</h6>
     </div>
     
-
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -23,9 +22,9 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Basic Inputs</h4>
+                <h4 class="card-title">Favourites Input</h4>
             </div>
-            <form action="/favourite" method="POST">
+            <form action="/favourite_set" method="POST">
 
             <div class="card-body">
                 <div class="row">
@@ -33,117 +32,96 @@
                         <div class="form-group">
                             <label for="basicInput">Favourite Person:</label>
                             <input type="text" class="form-control" name="person" id="basicInput"
-                                placeholder="Person">
+                                value="{{favourites.person}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Food:</label>
                             <input type="text" name="food" class="form-control" id="basicInput"
-                                placeholder="Food">
+                            value="{{favourites.food}}">
                         </div>                      
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite fish:</label>
                             <input type="text" class="form-control" name="fish" id="basicInput"
-                                placeholder="Fish">
+                            value="{{favourites.fish}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite Fruit:</label>
                             <input type="text" class="form-control" name="fruit" id="basicInput"
-                                placeholder="Fruit">
+                            value="{{favourites.fruit}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite Place:</label>
                             <input type="text" class="form-control" name="place" id="basicInput"
-                                placeholder="Place">
+                            value="{{favourites.place}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Flower:</label>
                             <input type="text" name="flower" class="form-control" id="basicInput"
-                                placeholder="Flower">
+                            value="{{favourites.flower}}">
                         </div>                      
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite Animal:</label>
                             <input type="text" class="form-control" name="animal" id="basicInput"
-                                placeholder="Animal">
+                            value="{{favourites.animal}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Drink:</label>
                             <input type="text" name="drink" class="form-control" id="basicInput"
-                                placeholder="Drink">
+                            value="{{favourites.drink}}">
                         </div>                      
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite Game:</label>
                             <input type="text" class="form-control" name="game" id="basicInput"
-                                placeholder="Game">
+                            value="{{favourites.game}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Movie:</label>
                             <input type="text" name="movie" class="form-control" id="basicInput"
-                                placeholder="Movie">
+                            value="{{favourites.movie}}">
                         </div>                      
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="basicInput">Favourite TV Show:</label>
                             <input type="text" class="form-control" name="tvshow" id="basicInput"
-                                placeholder="TV Show">
+                            value="{{favourites.tvshow}}">
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
-        </div>
-    </section>
-
-
-
-    <section class="section">
-        <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                
-                            </h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="summernote"></div>
-        
-                            <section>
-                                <h3 class="card-title">Your favourites is so expensive. Is it right?</h3>
-                                <select name="select" class="card-title">
-                                    <option>---Select---</option>
-                                    <option value="1">Positive</option>
-                                    <option value="0">Negative</option>
-                                    <option value="2">Partial</option>
-                                </select>
-                                <p style="color: red;">You can not change it!!!</p>
-                            </section>
-                            <input type="submit" class="btn btn-dark" value="Save" style="float:right">
-                        </div>      
-                    </div>
-                </div>
-            </form>
+            <div class="card-body">
+                <section>
+                    <h3 class="card-title">Your favourites are so expensive. Is it right?</h3>
+                    <select name="select" aria-valuenow="{{favourites.select}}" class="card-title">
+                        <option value="Null">---Select---</option>
+                        <option value="1">Positive</option>
+                        <option value="0">Negative</option>
+                        <option value="2">Partial</option>
+                    </select>
+                    <br>
+                <input type="submit" class="btn btn-dark" value="Save" style="float:right">
+                </section>
+            </div>   
         </div>
     </section>
 </div>
-</div>
+
 {% endblock body %}

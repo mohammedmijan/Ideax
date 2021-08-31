@@ -1,0 +1,10 @@
+{% extends 'dist/base.html' %}
+{% block title %}
+| public page
+{% endblock title %}
+{% block body %}
+{% for show in showings %}
+{{show._id}} <br>
+    
+{% endfor %}
+{% endblock body %}

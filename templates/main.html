@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'dist/base.html' %}
 {% block title %}
 | home
 {% endblock title %}
 {% block body %}
 
 
-     
+
 <div class="card-title" style="height: 2cm; text-align:center;">
     <h1>Home</h1>
     <h4>Explore people</h4>
@@ -22,34 +22,37 @@
     </div>
 </div>
 
-
-<div class="col-md-10" style="text-align: center;">
-
-    <div class="card">
-        <div class="card-header">
-            <h2 style="color: rgb(49, 174, 216);">Ideas and Thoughts of People</h2>
-            {% for diary in dairies %}
-            <h5>{{diary.subject}}</h5>
-            <p>{{diary.post}}</p>
-            <hr>
-            {% endfor %}
+<div class="row">
+    <div class="col-md-6" style="text-align: center;">
+        <div class="card">
+            <div class="card-header">
+                <h2 style="color: rgb(49, 174, 216);">Ideas and Thoughts of People</h2>
+                {% for diary in dairies %}
+                <h5>{{diary.subject}}</h5>
+                <p>{{diary.post}}</p>
+                <hr>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h2 style="color: rgb(7, 101, 133);">Experience Shared by People</h2>
-            {% for experience in experiences %}
-            <h3 style="color: rgb(76, 132, 238);">{{experience.item}}</h3>
-            <h4 style="color: rgb(49, 174, 216);">{{experience.heading}}</h4>
-            <h4 >{{experience.description}}</h4>
-            <p>{{experience.writing}}</p>
-            <hr>
-            {% endfor %}
-
+    <div class="col-md-6" style="text-align: center;">
+        <div class="card">
+            <div class="card-header">
+                <h2 style="color: rgb(7, 101, 133);">Experience Shared by People</h2>
+                {% for experience in experiences %}
+                <h3 style="color: rgb(76, 132, 238);">{{experience.item}}</h3>
+                <h4 style="color: rgb(49, 174, 216);">{{experience.heading}}</h4>
+                <h4>{{experience.description}}</h4>
+                <p>{{experience.writing}}</p>
+                <hr>
+                {% endfor %}
+            </div>
         </div>
     </div>
-
 </div>
+
+
+
 
 
 {% endblock body %}

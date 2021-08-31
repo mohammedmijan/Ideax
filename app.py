@@ -49,6 +49,14 @@ def login():
     return render_template("dist/login.html")
 
 
+def last_five(lists):
+    if len(lists) > 4:
+        listss = [lists[i] for i in range(4)]
+    else:
+        listss = lists
+    return listss
+
+
 @app.route("/")
 @login_required
 def daily_dairies():
@@ -61,13 +69,36 @@ def daily_dairies():
     experiences = loads(dumps(experiences))
     dairies.reverse()
     experiences.reverse()
-    return render_template("main.html", dairies=dairies, experiences=experiences)
+    return render_template("main.html", dairies=last_five(dairies), experiences=last_five(experiences))
 
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect("/login")
+
+@app.route("/public/<string:public>")
+@login_required
+def ideas(public):
+    if public == "ideas":
+        dairies = mongo.db.ideas.find()
+        dairies = loads(dumps(dairies))
+        dairies.reverse()
+        showings = dairies
+
+    if public == "favourites":
+        dairies = mongo.db.favourites.find()
+        dairies = loads(dumps(dairies))
+        dairies.reverse()
+        showings = dairies
+
+    if public == "experiences":
+        dairies = mongo.db.experiences.find()
+        dairies = loads(dumps(dairies))
+        dairies.reverse()
+        showings = dairies
+    print(showings)
+    return render_template("public.html", showings=showings)
 
 
 @app.route("/daily_diary" , methods=["GET" , "POST"])
@@ -139,13 +170,20 @@ def experience_edit(_id):
     post = loads(dumps(mongo.db.experiences.find_one({'_id':objectid.ObjectId(_id)})))
     return render_template("dist/experience_edit.html", experience=post, user=current_user.name)
 
-@app.route("/favourite", methods=["GET", "POST"])
+@app.route("/favourite")
 @login_required
 def favourite():
     favourites =loads(dumps(mongo.db.favourites.find_one({'name':current_user.name})))
     if favourites:
         return render_template("dist/favourite.html", favourites=favourites, user=current_user.name, time=time.asctime())
-    elif request.method == "POST":
+    else:
+        return redirect("/favourite_set")
+        
+    
+@app.route("/favourite_set" , methods=["GET", "POST"])
+@login_required
+def favourite_set():
+    if request.method == "POST":
         person =request.form["person"]
         fish =request.form["fish"]
         place =request.form["place"]
@@ -158,11 +196,14 @@ def favourite():
         tvshow =request.form["tvshow"]
         fruit =request.form["fruit"]
         select = request.form["select"]
+        mongo.db.favourites.find_one_and_delete({"name":current_user.name})
         mongo.db.favourites.insert_one({'name':current_user.name,"person":person,'fish':fish,'place':place,'flower':flower,
         'animal':animal,'drink':drink,'food':food,'game':game,'movie':movie,'tvshow':tvshow,"fruit":fruit, 'select':select})
         return redirect("/favourite")
-        
-    return render_template("dist/favourite_set.html")
+
+    favourites =loads(dumps(mongo.db.favourites.find_one({'name':current_user.name})))
+    return render_template("dist/favourite_set.html", favourites=favourites, user=current_user.name, time=time.asctime())
+
 
 @app.route("/admin")
 @login_required
