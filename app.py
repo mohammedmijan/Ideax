@@ -143,7 +143,6 @@ def experience_edit(_id):
 @login_required
 def favourite():
     favourites =loads(dumps(mongo.db.favourites.find_one({'name':current_user.name})))
-    print(favourites)
     if favourites:
         return render_template("dist/favourite.html", favourites=favourites, user=current_user.name, time=time.asctime())
     elif request.method == "POST":
@@ -157,9 +156,10 @@ def favourite():
         game =request.form["game"]
         movie =request.form["movie"]
         tvshow =request.form["tvshow"]
+        fruit =request.form["fruit"]
         select = request.form["select"]
         mongo.db.favourites.insert_one({'name':current_user.name,"person":person,'fish':fish,'place':place,'flower':flower,
-        'animal':animal,'drink':drink,'food':food,'game':game,'movie':movie,'tvshow':tvshow, 'select':select})
+        'animal':animal,'drink':drink,'food':food,'game':game,'movie':movie,'tvshow':tvshow,"fruit":fruit, 'select':select})
         return redirect("/favourite")
         
     return render_template("dist/favourite_set.html")

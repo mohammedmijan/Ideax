@@ -1,13 +1,16 @@
 
-{% extends 'test.html' %}
+{% extends 'base.html' %}
 {% block body %}
     <br><br><br>
 <div>
 <a href="/">Home</a>
-Sumscriber {{no_subscribers}}
+Subscriber {{no_subscribers}}
 <p>Subscribers:</p>
 {% for subscriber in subscribers %}
     {{loop.index}} : {{subscriber.name}} <br>
 {% endfor %}
 </div>
+
+
+
 {% endblock body %}
