@@ -50,8 +50,8 @@ def login():
 
 
 def last_five(lists):
-    if len(lists) > 4:
-        listss = [lists[i] for i in range(4)]
+    if len(lists) > 2:
+        listss = [lists[i] for i in range(3)]
     else:
         listss = lists
     return listss
@@ -67,9 +67,12 @@ def daily_dairies():
     dairies = loads(dumps(dairies))
     experiences = mongo.db.experiences.find()
     experiences = loads(dumps(experiences))
+    favourites = mongo.db.favourites.find()
+    favourites = loads(dumps(favourites))
     dairies.reverse()
     experiences.reverse()
-    return render_template("main.html", dairies=last_five(dairies), experiences=last_five(experiences))
+    favourites.reverse()
+    return render_template("main.html", dairies=last_five(dairies), experiences=last_five(experiences) , favouritess=last_five(favourites))
 
 @app.route("/logout")
 @login_required
@@ -97,8 +100,7 @@ def ideas(public):
         dairies = loads(dumps(dairies))
         dairies.reverse()
         showings = dairies
-    print(showings)
-    return render_template("public.html", showings=showings)
+    return render_template("public.html", showings=showings , public=public)
 
 
 @app.route("/daily_diary" , methods=["GET" , "POST"])
@@ -196,13 +198,20 @@ def favourite_set():
         tvshow =request.form["tvshow"]
         fruit =request.form["fruit"]
         select = request.form["select"]
-        mongo.db.favourites.find_one_and_delete({"name":current_user.name})
         mongo.db.favourites.insert_one({'name':current_user.name,"person":person,'fish':fish,'place':place,'flower':flower,
         'animal':animal,'drink':drink,'food':food,'game':game,'movie':movie,'tvshow':tvshow,"fruit":fruit, 'select':select})
-        return redirect("/favourite")
+        return redirect("/")
 
     favourites =loads(dumps(mongo.db.favourites.find_one({'name':current_user.name})))
     return render_template("dist/favourite_set.html", favourites=favourites, user=current_user.name, time=time.asctime())
+
+@app.route("/save_favourites/<string:fav>", methods=["POST"])
+@login_required
+def save_favourites_desc(fav):
+    if request.method == "POST":
+        fav_desc = request.form['fav_desc']
+        mongo.db.favourites.find_one_and_update({"name":current_user.name}, {"$set":{fav:fav_desc}})
+        return redirect("/favourite")
 
 
 @app.route("/admin")

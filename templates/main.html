@@ -9,7 +9,8 @@
 <div class="card-title" style="height: 2cm; text-align:center;">
     <h1>Home</h1>
     <h4>Explore people</h4>
-</div>
+    <h6 style="color: rgb(243, 8, 8);">Recently Uploaded</h6><br>
+</div><br>
 
 
 <div class="page-heading">
@@ -32,6 +33,8 @@
                 <p>{{diary.post}}</p>
                 <hr>
                 {% endfor %}
+                <a href="/daily_diary" class="btn btn-info">Your Ideas</a>
+                <a href="/public/ideas" class="btn btn-outline-info">Explore more</a>
             </div>
         </div>
     </div>
@@ -46,8 +49,202 @@
                 <p>{{experience.writing}}</p>
                 <hr>
                 {% endfor %}
+                <a href="/experience" class="btn btn-success">Your Experiences</a>
+                <a href="/public/experiences" class="btn btn-outline-info">Explore more</a>
             </div>
         </div>
+    </div>
+    <div class="col-12 col-xl-12" style="text-align: center;">
+        <section class="section">
+            <div class="card"><br><h4 style="color: teal;">Favourite items of People</h4>
+            <div class="row">
+                {% for favourites in favouritess %}
+                {% if favourites.person_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/3.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.person}}</h5>
+                                    <p>{{favourites.person_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.flower_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/2.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.flower}}</h5>
+                                    <p>{{favourites.flower_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.fruit_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/fr.png') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.fruit}}</h5>
+                                    <p>{{favourites.fruit_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.food_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/f.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.food}}</h5>
+                                    <p>{{favourites.food_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.drink_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/d.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.drink}}</h5>
+                                    <p>{{favourites.drink_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.place_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/4.gif') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.place}}</h5>
+                                    <p>{{favourites.place_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.game_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/g.png') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.game}}</h5>
+                                    <p>{{favourites.game_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.movie_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/m.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.movie}}</h5>
+                                    <p>{{favourites.movie_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.animal_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/4.jpg') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.animal}}</h5>
+                                    <p>{{favourites.animal_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if favourites.tvshow_data %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                        src="{{ url_for('static', filename='assets/images/faces/ts.gif') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{favourites.tvshow}}</h5>
+                                    <p>{{favourites.tvshow_data}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <a href="/public/favourites" class="btn btn-info">Explore more</a>
+                <a href="/favourite" class="btn btn-success">Your Favs</a>
+            </div>
+        </section>
+    </div>
     </div>
 </div>
 

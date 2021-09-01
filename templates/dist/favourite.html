@@ -1,269 +1,419 @@
 {% extends 'dist/base.html' %}
+{% block title %}
+| Your favourites
+{% endblock title %}
 {% block body %}
-    <div class="container">
-        <div class="buttons">
-        <a href="/favourite_set" class="btn btn-outline-warning" style="float: right;">Edit Your Favourites</a>
-    </div>
-<p style="color: black;">{{time}}</p>
-<h2 style="color: rgb(123, 158, 158);">Write About Your Favourites</h2>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/3.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Person</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.person}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About your {{favourites.person}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
+<div class="container">
+    <p style="color: black;">{{time}}</p>
+    <h2 style="color: rgb(123, 158, 158);">Write About Your Favourites</h2>
+    <section class="section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/3.jpg') }}">
                             </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="recent-message d-flex px-4 py-3">
-                                        <div class="avatar avatar-lg">
-                                            <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/2.jpg') }}">
-                                        </div>
-                                        <div class="name ms-4">
-                                            <h5 class="mb-1">Favourite Flower</h5>
-                                            <h6 class="text-muted mb-0">{{favourites.flower}}</h6>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.flower}} " class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Person</h5>
+                                <h6 class="text-muted mb-0">{{favourites.person}}</h6>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="recent-message d-flex px-4 py-3">
-                                        <div class="avatar avatar-lg">
-                                            <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/fr.png') }}">
-                                        </div>
-                                        <div class="name ms-4">
-                                            <h5 class="mb-1">Favourite Fruit</h5>
-                                            <h6 class="text-muted mb-0">{{favourites.fruit}}</h6>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.fruit}} " class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/1.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Fish</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.fish}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.fish}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/4.gif') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Place</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.place}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About your {{favourites.place}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/4.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Animal</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.animal}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.animal}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/d.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Animal</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.drink}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.drink}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/f.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Food</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.food}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.food}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/g.png') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Game</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.game}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.game}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/m.jpg') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite Movie</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.movie}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.movie}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="recent-message d-flex px-4 py-3">
-                                            <div class="avatar avatar-lg">
-                                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;" src="{{ url_for('static', filename='assets/images/faces/ts.gif') }}">
-                                            </div>
-                                            <div class="name ms-4">
-                                                <h5 class="mb-1">Favourite TVShow</h5>
-                                                <h6 class="text-muted mb-0">{{favourites.tvshow}}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <textarea placeholder="About {{favourites.tvshow}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <div class="buttons">
-                                            <a href="#" class="btn btn-outline-info">Save</a>
-                                            <a href="#" class="btn btn-outline-warning">Edit</a>                                          
-                                        </div>
-                                    </div>                      
-                                </div>
-                            </div>
-
                         </div>
-                    </section>
+                        <form action="/save_favourites/person_data" method="post">
+                            {% if favourites.person_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.person_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About your {{favourites.person}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-    {% endblock body %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="recent-message d-flex px-4 py-3">
+                        <div class="avatar avatar-lg">
+                            <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                src="{{ url_for('static', filename='assets/images/faces/2.jpg') }}">
+                        </div>
+                        <div class="name ms-4">
+                            <h5 class="mb-1">Favourite Flower</h5>
+                            <h6 class="text-muted mb-0">{{favourites.flower}}</h6>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="/save_favourites/flower_data" method="post">
+                            {% if favourites.flower_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.flower_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.flower}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="recent-message d-flex px-4 py-3">
+                        <div class="avatar avatar-lg">
+                            <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                src="{{ url_for('static', filename='assets/images/faces/fr.png') }}">
+                        </div>
+                        <div class="name ms-4">
+                            <h5 class="mb-1">Favourite Fruit</h5>
+                            <h6 class="text-muted mb-0">{{favourites.fruit}}</h6>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="/save_favourites/fruit_data" method="post">
+                            {% if favourites.fruit_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.fruit_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.fruit}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/1.jpg') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Fish</h5>
+                                <h6 class="text-muted mb-0">{{favourites.fish}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/fish_data" method="post">
+                            {% if favourites.fish_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.fish_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.fish}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/4.gif') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Place</h5>
+                                <h6 class="text-muted mb-0">{{favourites.place}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/place_data" method="post">
+                            {% if favourites.place_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.place_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.place}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/4.jpg') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Animal</h5>
+                                <h6 class="text-muted mb-0">{{favourites.animal}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/animal_data" method="post">
+                            {% if favourites.animal_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.animal_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.animal}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/d.jpg') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Drink</h5>
+                                <h6 class="text-muted mb-0">{{favourites.drink}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/drink_data" method="post">
+                            {% if favourites.drink_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.drink_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.drink}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/f.jpg') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Food</h5>
+                                <h6 class="text-muted mb-0">{{favourites.food}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/food_data" method="post">
+                            {% if favourites.food_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.food_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.food}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/g.png') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Game</h5>
+                                <h6 class="text-muted mb-0">{{favourites.game}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/game_data" method="post">
+                            {% if favourites.game_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.game_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.game}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/m.jpg') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite Movie</h5>
+                                <h6 class="text-muted mb-0">{{favourites.movie}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/movie_data" method="post">
+                            {% if favourites.movie_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.movie_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.movie}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="recent-message d-flex px-4 py-3">
+                            <div class="avatar avatar-lg">
+                                <img style="height: 3rem; width: 3rem; border-radius: 1.5rem;"
+                                    src="{{ url_for('static', filename='assets/images/faces/ts.gif') }}">
+                            </div>
+                            <div class="name ms-4">
+                                <h5 class="mb-1">Favourite TVShow</h5>
+                                <h6 class="text-muted mb-0">{{favourites.tvshow}}</h6>
+                            </div>
+                        </div>
+                        <form action="/save_favourites/tvshow_data" method="post">
+                            {% if favourites.tvshow_data %}
+                            <div class="form-group mb-3">
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3">{{favourites.tvshow_data}}</textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-warning">Edit</button>
+                            </div>
+                            {% else %}
+                            <div class="form-group mb-3">
+                                <textarea placeholder="About {{favourites.tvshow}}" class="form-control"
+                                    id="exampleFormControlTextarea1" name="fav_desc" rows="3"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-outline-info">Save</button>
+                            </div>
+                            {% endif %}
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+{% endblock body %}

@@ -7,22 +7,14 @@
     <div class="card-title" style="height: 2cm; text-align:center;">
     <h1>Save Your Favourites</h1>
     <h6>{{user}}</h6>
+    <p style="color: tomato;">Fill your Favs and Exlore human mind</p>
     </div>
     
 <div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <p class="text-subtitle text-muted">Favourites
-                    <p>Which things make you comport?</p>
-                </p>
-            </div>
-        </div>
-    </div>
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Favourites Input</h4>
+                <h4 class="card-title">Input your Favourites</h4>
             </div>
             <form action="/favourite_set" method="POST">
 
@@ -63,6 +55,7 @@
                             value="{{favourites.place}}">
                         </div>
                     </div>
+                    <p style="color: crimson;">Wait for the twist, fill all item. </p>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Flower:</label>
@@ -91,6 +84,7 @@
                             value="{{favourites.game}}">
                         </div>
                     </div>
+                    <p style="color: crimson;">Wait for the twist, fill all. </p>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="disabledInput">Favourite Movie:</label>
@@ -119,6 +113,8 @@
                     <br>
                 <input type="submit" class="btn btn-dark" value="Save" style="float:right">
                 </section>
+                <p style="color: red;">The inputs can never change, check it again and enjoy the world of people.</p>
+
             </div>   
         </div>
     </section>
